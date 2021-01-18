@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import {EventEmitter} from '@angular/core';
 import { RegisteredUsersService } from '../registered-users.service';
 
 @Component({
@@ -10,6 +11,8 @@ import { RegisteredUsersService } from '../registered-users.service';
 export class RegisteredUsersComponent implements OnInit {
 
   users: FormGroup[] = [];
+
+  @Output() indexToEdit = new EventEmitter();
 
   constructor(
     private allUsers: RegisteredUsersService
@@ -27,10 +30,7 @@ export class RegisteredUsersComponent implements OnInit {
   }
 
   onEdit(index:number){
-
-  }
-  saveEdit(){
-    
+    this.indexToEdit.emit(index.toString());
   }
 
 }

@@ -17,8 +17,14 @@ export class RegisteredUsersService {
   getUser(){
     return this.users
   }
+  getCurrUser(index:number){
+    return this.users[index]
+  }
   removeUser(index:number){
       this.users.splice(index,1)
+  }
+  editUser(user:FormGroup){
+    this.users[0] = user;
   }
 
 

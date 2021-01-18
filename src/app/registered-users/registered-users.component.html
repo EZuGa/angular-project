@@ -3,15 +3,22 @@
 
 <div *ngFor="let user of users; index as i">
     <p>-----------------------------------------</p>
-    <p>email: {{user.controls.email.value}}</p>
-    <!-- <p>pass: {{user.controls.passwordGroup.controls.password.value}}</p> -->
-    <!-- <p>pass: {{password}}</p> -->
-    <p>nick: {{user.controls.nickName.value}}</p>
-    <p>phone: {{user.controls.phoneNumber.value}}</p>
-    <p>website: {{user.controls.website.value}}</p>
+
+    <!-- email: <input type="email" [placeholder]='user.get("email")!.value'><br>
+    password: <input type="password" [placeholder]='user.get("passwordGroup")!.get("password")!.value'><br>
+    nick: <input type="password" [placeholder]='user.get("nickName")!.value'><br>
+    phone: <input type="tel" [placeholder]='user.get("phoneNumber")!.value'><br>
+    website: <input type="tel" [placeholder]='user.get("phoneNumber")!.value'><br> -->
+
+
+    <p>email: {{user.get("email")!.value}}</p>
+    <p>pass: {{user.get("passwordGroup")!.get("password")!.value}}</p>
+    <p>nick: {{user.get("nickName")!.value}}</p>
+    <p>phone: {{user.get("phoneNumber")!.value}}</p>
+    <p>website: {{user.get("website")!.value}}</p>
+    <br>
     <button (click)="onDelete(i)">DELETE</button> 
-    <button (click)="onEdit(i)"> EDIT </button>
-     <button (click)="saveEdit()">Save</button>
+     <button (click)="onEdit(i)">EDIT</button>
     <p>-----------------------------------------</p>
     <br><br>
 </div>

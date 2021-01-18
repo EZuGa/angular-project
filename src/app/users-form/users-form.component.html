@@ -14,7 +14,7 @@
     *Phone Number:<input formControlName="phoneNumber" type="tel"><br>
     *Website:<input formControlName="website" type="url"><br>
 
-    <input (click)="onCheckbox()" [checked]="isChecked" type="checkbox" formControlName="checkbox"> I have read read agreement
+    <input [disabled]="true" (click)="onCheckbox()" [checked]="isChecked" type="checkbox" formControlName="checkbox" > I have read read agreement
 
 
 
@@ -23,4 +23,4 @@
 
 </form>
 
-<app-registered-users></app-registered-users>
+<app-registered-users (indexToEdit)="getIndex($event)"></app-registered-users>
