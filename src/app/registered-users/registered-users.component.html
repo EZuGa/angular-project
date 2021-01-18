@@ -1,0 +1,17 @@
+<h1>ALL USERS:</h1>
+
+
+<div *ngFor="let user of users; index as i">
+    <p>-----------------------------------------</p>
+    <p>email: {{user.controls.email.value}}</p>
+    <!-- <p>pass: {{user.controls.passwordGroup.controls.password.value}}</p> -->
+    <!-- <p>pass: {{password}}</p> -->
+    <p>nick: {{user.controls.nickName.value}}</p>
+    <p>phone: {{user.controls.phoneNumber.value}}</p>
+    <p>website: {{user.controls.website.value}}</p>
+    <button (click)="onDelete(i)">DELETE</button> 
+    <button (click)="onEdit(i)"> EDIT </button>
+     <button (click)="saveEdit()">Save</button>
+    <p>-----------------------------------------</p>
+    <br><br>
+</div>

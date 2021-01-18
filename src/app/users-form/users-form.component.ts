@@ -1,5 +1,7 @@
+import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit} from '@angular/core';
 import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import {RegisteredUsersService} from '../registered-users.service'
 
 @Component({
   selector: 'app-users-form',
@@ -15,7 +17,10 @@ export class UsersFormComponent implements OnInit {
 
 
 
-  constructor(public fb:FormBuilder) { }
+  constructor(
+    public fb:FormBuilder,
+    private allUsers: RegisteredUsersService
+    ) { }
 
 
   ngOnInit(): void {
@@ -35,8 +40,13 @@ export class UsersFormComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.formGroup)
-    console.log(this.formGroup.controls.passwordGroup.status==="VALID")
+    console.log(this.formGroup.status)
+    if(this.formGroup.status === "VALID"){
+      console.log(this.formGroup)
+      this.allUsers.addUser(this.formGroup)
+      
+    }
+    
   }
   onPass(){
 this.enableButton()

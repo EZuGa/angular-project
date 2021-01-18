@@ -2,7 +2,7 @@
 <br>
 {{formGroup.controls.passwordGroup.status}}
 
-<form [formGroup]="formGroup" (submit)="onSubmit()">
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
         *E-mail: <input formControlName="email" type="email" ><br>
     
     <div formGroupName="passwordGroup">
@@ -14,9 +14,13 @@
     *Phone Number:<input formControlName="phoneNumber" type="tel"><br>
     *Website:<input formControlName="website" type="url"><br>
 
-    <input (click)="onCheckbox()" [checked]="isChecked" type="checkbox" formControlName="checkbox">
+    <input (click)="onCheckbox()" [checked]="isChecked" type="checkbox" formControlName="checkbox"> I have read read agreement
 
 
 
-    <button [disabled]="submitDisabled" type="button" (click)="onSubmit()">Register</button>
+    <!-- <button [disabled]="submitDisabled" type="button" (click)="onSubmit()">Register</button> -->
+    <button [disabled]="submitDisabled" type="submit">Register</button>
+
 </form>
+
+<app-registered-users></app-registered-users>
