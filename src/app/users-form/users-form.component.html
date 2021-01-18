@@ -1,0 +1,22 @@
+{{formGroup.status}}
+<br>
+{{formGroup.controls.passwordGroup.status}}
+
+<form [formGroup]="formGroup" (submit)="onSubmit()">
+        *E-mail: <input formControlName="email" type="email" ><br>
+    
+    <div formGroupName="passwordGroup">
+        *Password: <input formControlName="password" type="password" (ngModelChange)="onPass()"><br>
+        *confirmPassword: <input formControlName="confirmPassword" type="password" (ngModelChange)="onPass()">
+    </div>
+
+    *Nickname:<input formControlName="nickName" type="text"><br>
+    *Phone Number:<input formControlName="phoneNumber" type="tel"><br>
+    *Website:<input formControlName="website" type="url"><br>
+
+    <input (click)="onCheckbox()" [checked]="isChecked" type="checkbox" formControlName="checkbox">
+
+
+
+    <button [disabled]="submitDisabled" type="button" (click)="onSubmit()">Register</button>
+</form>
