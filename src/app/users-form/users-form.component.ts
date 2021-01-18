@@ -26,7 +26,8 @@ export class UsersFormComponent implements OnInit {
 
     getIndex(i:string){
       this.indexToEdit= Number(i);
-      this.isChecked = false;
+      this.isChecked = true;
+      this.formGroup.get("checkbox")?.disable()
       this.submitDisabled = true;
       this.setEdit()
     }
@@ -88,6 +89,8 @@ export class UsersFormComponent implements OnInit {
       console.log("EDITED?")
       this.allUsers.editUser(this.formGroup,this.indexToEdit);
       this.indexToEdit = -1;
+      this.formGroup.get("checkbox")?.enable()
+
       this.startGroup()
       return;
     }
