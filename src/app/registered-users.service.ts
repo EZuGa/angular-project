@@ -23,8 +23,8 @@ export class RegisteredUsersService {
   removeUser(index:number){
       this.users.splice(index,1)
   }
-  editUser(user:FormGroup){
-    this.users[0] = user;
+  editUser(user:FormGroup,index:number){
+    this.users[index] = user;
   }
 
 
