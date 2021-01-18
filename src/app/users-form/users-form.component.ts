@@ -86,7 +86,7 @@ export class UsersFormComponent implements OnInit {
   onSubmit(){
     if(this.indexToEdit !== -1 && this.formGroup.status === "VALID"){
       console.log("EDITED?")
-      this.allUsers.editUser(this.formGroup);
+      this.allUsers.editUser(this.formGroup,this.indexToEdit);
       this.indexToEdit = -1;
       this.startGroup()
       return;
