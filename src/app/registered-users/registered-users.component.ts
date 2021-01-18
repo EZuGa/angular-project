@@ -1,6 +1,5 @@
-import { Component, OnInit, Output } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {EventEmitter} from '@angular/core';
 import { RegisteredUsersService } from '../registered-users.service';
 
 @Component({
@@ -25,6 +24,12 @@ export class RegisteredUsersComponent implements OnInit {
   }
 
   onDelete(index:number){
+    alert("This action will remove a user with this email: " + this.users[index].get("email")?.value)
+    let userAgreed = confirm("Are you sure?")
+    if(userAgreed === false){
+      return
+    }
+
     console.log(index)
     this.allUsers.removeUser(index)
   }
