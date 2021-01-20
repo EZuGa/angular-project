@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { UsersFormComponent } from './users-form/users-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisteredUsersComponent } from './registered-users/registered-users.component';
+import {HttpClientModule} from '@angular/common/http';
+import { ValutisCvlaComponent } from './valutis-cvla/valutis-cvla.component'
 
 
 @NgModule({
@@ -13,12 +15,14 @@ import { RegisteredUsersComponent } from './registered-users/registered-users.co
     AppComponent,
     UsersFormComponent,
     RegisteredUsersComponent,
+    ValutisCvlaComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

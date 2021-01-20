@@ -1,0 +1,21 @@
+<form [formGroup]="form">
+
+   
+    <select (change)="onSelectIn()" formControlName="selectIn">
+        <option *ngFor="let currency of currArr" [value]="currency">{{currency}}</option>
+      </select>
+      <br>
+      <input (ngModelChange)="onInputIn($event)" formControlName="valutIn" type="number">
+      <br>
+      <br><br>
+      <select (change)="onSelectOut()"  formControlName="selectOut">
+        <option *ngFor="let currency of currArr" [value]="currency">{{currency}}</option>
+      </select>
+      <br>
+      <input formControlName="valutOut" type="number">
+
+
+
+
+
+</form>
