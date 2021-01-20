@@ -29,6 +29,9 @@ export class ValutisCvlaComponent implements OnInit {
     form!:FormGroup
     rates: any[] =[]
     rate?: number;
+    allMoney:IAllCash[] = [];
+    cashTotal:number = 0
+
     currArr:string[] = 
     ["CAD", "HKD", "ISK", "PHP", "DKK", "HUF",
      "CZK", "GBP", "RON", "SEK", "IDR", "INR", 
@@ -60,7 +63,8 @@ export class ValutisCvlaComponent implements OnInit {
     let country = this.form.get("selectOut")?.value;
     this.toCountry = country;
      this.rate = this.rates[country]
-     this.calculateMoney()
+
+     this.calculateSum()
   }
 
   // onInputIn(input:number){
@@ -81,13 +85,12 @@ export class ValutisCvlaComponent implements OnInit {
   //   this.editingSecond = false
   // }
   onInputIn(){
-console.log("aee")
      this.calculateMoney()
 
   }
   onInputOut(){
-    console.log("RATOO")
     this.form.get("valutIn")?.patchValue(this.valutOut/this.rate!)
+    this.calculateSum()
   }
 
   calculateMoney(){
@@ -118,6 +121,32 @@ console.log("aee")
   get selectOut(){
     return this.form.get("selectOut")?.value
   }
+
+onAdd(){
+
+  console.log(this.valutIn)
+  if(typeof this.valutIn === "string" || this.valutIn <=0){
+    console.log("ar daemata")
+    return
+  }
+
+  this.allMoney.push({cash:this.valutIn,valuta:this.selectIn,rates:this.rates})
+
+  this.calculateSum()
+
+}
+
+calculateSum(){
+  this.cashTotal = Number(this.allMoney.reduce((sum,val)=>sum+val.cash*val.rates[this.form.get("selectOut")?.value],0).toFixed(2))
+}
+
+  
   
 
+}
+
+interface IAllCash{
+  cash:number,
+  valuta:string,
+  rates:any
 }

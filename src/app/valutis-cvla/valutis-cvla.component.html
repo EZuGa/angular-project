@@ -6,6 +6,7 @@
       </select>
       <br>
       <input (input)="onInputIn()" formControlName="valutIn" type="number">
+      <button (click)="onAdd()">ADD</button>
       <br>
       <br><br>
       <select (change)="onSelectOut()"  formControlName="selectOut">
@@ -13,6 +14,12 @@
       </select>
       <br>
       <input (input)="onInputOut()" formControlName="valutOut" type="number">
+
+
+      <h3>ALL CASH:</h3> 
+      <p *ngFor="let current of allMoney">{{ current.cash }} {{current.valuta}}</p>
+       <p>-------------------------------</p>
+        <h3>Total in {{selectOut}}: {{cashTotal | currency : selectOut}}</h3>
 
 
 
