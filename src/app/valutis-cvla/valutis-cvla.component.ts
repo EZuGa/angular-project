@@ -36,8 +36,8 @@ export class ValutisCvlaComponent implements OnInit {
       "EUR", "MYR", "BGN", "TRY", "CNY", "NOK",
        "NZD", "ZAR", "USD", "MXN", "SGD", "AUD",
         "ILS", "KRW", "PLN"]
-    editingSecond = false;
-    editingFirst = false;
+    // editingSecond = false;
+    // editingFirst = false;
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -63,22 +63,31 @@ export class ValutisCvlaComponent implements OnInit {
      this.calculateMoney()
   }
 
-  onInputIn(input:number){
-    if(this.editingSecond){
-      return;
-    }
-    this.editingFirst = true;
-    this.calculateMoney()
-    this.editingFirst = false;
+  // onInputIn(input:number){
+  //   if(this.editingSecond){
+  //     return;
+  //   }
+  //   this.editingFirst = true;
+  //   this.calculateMoney()
+  //   this.editingFirst = false;
+  // }
+  // onInputOut(input:number){
+  //   if(this.editingFirst){
+  //     return;
+  //   }
+  //   this.editingSecond = true
+  //   console.log("AEE")
+  //   this.form.get("valutIn")?.patchValue(1000)
+  //   this.editingSecond = false
+  // }
+  onInputIn(){
+console.log("aee")
+     this.calculateMoney()
+
   }
-  onInputOut(input:number){
-    if(this.editingFirst){
-      return;
-    }
-    this.editingSecond = true
-    console.log("AEE")
-    this.form.get("valutIn")?.patchValue(1000)
-    this.editingSecond = false
+  onInputOut(){
+    console.log("RATOO")
+    this.form.get("valutIn")?.patchValue(this.valutOut/this.rate!)
   }
 
   calculateMoney(){
