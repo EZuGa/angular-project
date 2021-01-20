@@ -12,7 +12,7 @@
         <option *ngFor="let currency of currArr" [value]="currency">{{currency}}</option>
       </select>
       <br>
-      <input formControlName="valutOut" type="number">
+      <input (ngModelChange)="onInputOut($event)" formControlName="valutOut" type="number">
 
 
 
