@@ -1,0 +1,31 @@
+*{
+  box-sizing: border-box;
+}
+.mainContainer{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  div{
+    border: 1px solid black;
+    width: 20%;
+    height: 150px;
+  }
+}
+.pagination{
+  display: flex;
+  justify-content: space-between;
+  width: 100px;
+  margin: auto;
+  p{
+    color: cadetblue;
+    cursor: pointer;
+    &:hover{
+      color: cornflowerblue;
+    }
+  }
+}
+
+table,tr{
+  border: 1px solid black;
+  border-collapse: collapse;
+}

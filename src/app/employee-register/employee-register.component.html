@@ -1,0 +1,42 @@
+<p>employee-register works!</p>
+
+<form [formGroup]="form">
+  Name:<input formControlName="employee_name" type="text"><br>
+  Age:<input formControlName="employee_age" type="number"><br>
+  Salary:<input formControlName="employee_salary" type="number"><br><br>
+</form>
+
+
+<br>
+
+<button *ngIf="!editMode" (click)="createUser()">Create User</button>
+<button *ngIf="editMode" (click)="saveEdit()">Edit User</button>
+<button *ngIf="editMode" (click)="cancleEdit()" >Cancle Edit</button>
+
+<br>
+<br>
+
+<div class="mainContainer">
+<div *ngFor="let user of displayUsers; let i = index" (click)="currentUser(user.id)">
+  <p>Name: {{user.employee_name}}</p>
+  <p>Age: {{user.employee_age}}</p>
+  <p>Salary: {{user.employee_salary | currency}}</p>
+  <button (click)="onEdit(user.id);$event.stopPropagation()">Edit</button>
+  <button (click)="onDelete(user.id);$event.stopPropagation()">Delete</button>
+</div>
+</div>
+<span class="pagination">
+  <p (click)="pervious()">pervous</p>
+  <p (click)="next()" >next</p>
+</span>
+
+
+<div class="currentUser" *ngIf="ourUser">
+<h3>Current User:</h3>
+<p>{{ourUser.employee_name}}</p>
+<p>{{ourUser.employee_age}}</p>
+<p>{{ourUser.employee_salary | currency}}</p>
+</div>
+
+
+

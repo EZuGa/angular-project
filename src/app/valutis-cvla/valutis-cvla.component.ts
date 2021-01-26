@@ -100,7 +100,7 @@ export class ValutisCvlaComponent implements OnInit {
 
   getHTTP(){
       
-    this.http.get<any>(`https://api.exchangeratesapi.io/latest?base=${this.fromCountry}`)
+    this.http.get<IAllCash>(`https://api.exchangeratesapi.io/latest?base=${this.fromCountry}`)
     .pipe(
       tap(value=>{this.rate = value.rates[this.selectOut];this.rates=value.rates}),
       tap(()=>this.calculateMoney())
