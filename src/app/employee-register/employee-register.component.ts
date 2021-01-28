@@ -153,7 +153,4 @@ export class EmployeeRegisterComponent implements OnInit {
     this.HTTPREQUEST()
     this.ourUser = undefined
   }
-
-
-
 }

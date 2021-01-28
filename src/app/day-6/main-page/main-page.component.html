@@ -1,0 +1,15 @@
+<p>main-page works!</p>
+
+
+
+
+<button (click)="logout()">LOGOUT</button>
+<button (click)="onEdit()" >Edit</button>
+
+<form *ngIf="editMode" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  *E-mail: <input formControlName="email" type="email" ><br>
+
+  *Password: <input formControlName="password" type="text" ><br>
+
+<button type="submit">Save</button>
+</form>

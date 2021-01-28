@@ -1,6 +1,6 @@
 <form [formGroup]="form">
 
-   
+
     <select (change)="onSelectIn()" formControlName="selectIn">
         <option *ngFor="let currency of currArr" [value]="currency">{{currency}}</option>
       </select>
@@ -16,7 +16,7 @@
       <input (input)="onInputOut()" formControlName="valutOut" type="number">
 
 
-      <h3>ALL CASH:</h3> 
+      <h3>ALL CASH:</h3>
       <p *ngFor="let current of allMoney">{{ current.cash }} {{current.valuta}}</p>
        <p>-------------------------------</p>
         <h3>Total in {{selectOut}}: {{cashTotal | currency : selectOut}}</h3>
