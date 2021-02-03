@@ -1,0 +1,17 @@
+<p>last-task works!</p>
+<div class="animation"></div>
+<button (click)="getDATA()">GET DATA</button>
+
+
+
+
+<div class="help" *ngIf="vnaxee"
+ [@httoAnim]="state"
+  (@httoAnim.done)="onAnimationEnd($event)"
+ ></div>
+
+
+ <br><br><br>
+ <button (click)="onRemove()" >Remove User</button>
+ <app-remove-user [@showPage]="'end'" (notify)="onNotify()" *ngIf="removeWindow"  ></app-remove-user>
+
